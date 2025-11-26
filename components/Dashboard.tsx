@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Search, TrendingUp } from 'lucide-react';
 import Chart from './Chart';
+import "../app/spacer.css"
 
 const popularSeries = [
   { id: 'GDP', name: 'Gross Domestic Product' },
@@ -11,8 +12,8 @@ const popularSeries = [
   { id: 'DFF', name: 'Federal Funds Rate' },
   { id: 'DEXUSEU', name: 'USD/EUR Exchange Rate' },
   { id: 'T10Y2Y', name: '10-Year Treasury - 2-Year Treasury Spread' },
-  { id: 'FPCPITOTLZGUSA', name: 'Inflation, consumer prices for the United States'},
-  { id: 'IRLTLT01USM156N', name: 'Interest Rates: Long-Term Government Bond Yields: 10-Year: Main (Including Benchmark) for United States'}
+  { id: 'FPCPITOTLZGUSA', name: 'Inflation - Consumer Prices' },
+  { id: 'IRLTLT01USM156N', name: 'Interest Rates - 10-Year Bond Yields' }
 ];
 
 export default function Dashboard() {

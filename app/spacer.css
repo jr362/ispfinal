@@ -1,0 +1,8 @@
+.spacer {
+    display: inline-block;
+    width: 5px;
+}
+
+input[type="text"] {
+    padding-left: 50px;
+}
