@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { Database, Download, X, TrendingUp, Calendar } from 'lucide-react';
-import { SeriesData } from '@/types';
+import { SeriesData } from '../types/index';
 import  "../app/spacer.css"
 
 interface ChartProps {

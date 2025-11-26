@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FREDSeries, FREDObservation, SeriesData } from '@/types';
+import { FREDSeries, FREDObservation, SeriesData } from '../../types/index';
 import { getDatabase } from './mongodb';
 
 const FRED_API_BASE = 'https://api.stlouisfed.org/fred';
