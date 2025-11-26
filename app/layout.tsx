@@ -1,22 +1,19 @@
-import "./globals.css";
-import { ReactNode } from "react";
+import type { Metadata } from 'next';
+import './globals.css';
 
-
-export const metadata = {
-title: "FRED Time Series Visualizer",
-description: "Visualize economic time series from the FRED API",
+export const metadata: Metadata = {
+  title: 'FRED Economic Dashboard',
+  description: 'Federal Reserve Economic Data Dashboard',
 };
 
-
-export default function RootLayout({ children }: { children: ReactNode }) {
-return (
-<html lang="en">
-<body className="min-h-screen bg-gray-50 text-gray-900">
-<header className="p-4 bg-blue-600 text-white font-bold text-xl">
-FRED Time Series Viewer
-</header>
-<main className="p-4">{children}</main>
-</body>
-</html>
-);
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  );
 }

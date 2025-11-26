@@ -1,22 +1,38 @@
 services:
-  app:
-    build: .
-    ports:
-      - "3000:3000"
-    environment:
-      - MONGO_URI=mongodb://mongo:27017
-      - FRED_API_KEY=${FRED_API_KEY}
-    depends_on:
-      - mongo
-
-  mongo:
-    image: mongo:5
+  mongodb:
+    image: mongo:7.0
+    container_name: fred-mongodb
     restart: always
     ports:
       - "27017:27017"
     volumes:
-      - mongo-data:/data/db
+      - mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: series
+    networks:
+      - fred-network
 
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fred-nextjs
+    restart: always
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.local
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/series
+      - NODE_ENV=production
+    depends_on:
+      - mongodb
+    networks:
+      - fred-network
 
 volumes:
-  mongo-data:
+  mongodb_data:
+
+networks:
+  fred-network:
+    driver: bridge
